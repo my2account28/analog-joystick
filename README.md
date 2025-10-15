@@ -53,6 +53,8 @@ Run with `python joystick.py`, the script will:
 - Clear the screen to black
 - Display a white cursor controlled by your joystick
 
+For remote viewing, run VNC server: `x11vnc -rawfb console -auth /dev/null -noxdamage -forever -shared -repeat -defer 0 -wait 0 -noxinerama -nowf -nowcr -speeds modem -tightfilexfer` and connect to the server IP with any VNC client:  
+
 ![Screencast from 10-14-2025 05-01-18 PM](https://github.com/user-attachments/assets/de4c3a17-8acd-4557-bf8f-ea6bf78fc2ce)
 
 ## Algorithm
